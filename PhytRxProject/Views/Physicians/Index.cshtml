@@ -1,0 +1,57 @@
+﻿@model IEnumerable<PhytRxProject.Models.Physician>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PhName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhPic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Log.ComTxt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RX.RxName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PhPic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Log.ComTxt)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RX.RxName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PhID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PhID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PhID })
+        </td>
+    </tr>
+}
+
+</table>

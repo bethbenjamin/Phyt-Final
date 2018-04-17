@@ -1,0 +1,281 @@
+﻿@model PhytRxProject.Models.Exercis
+<link href="~/Content/PatientViewsStyleSheet.css" rel="stylesheet" />
+<link rel="stylesheet" href="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.css" />
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" />
+<script src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="https://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+
+<script src="~/Content/script.js"></script>
+
+@{
+
+
+    ViewBag.Title = "Details";
+}
+
+<body>
+
+
+    <div id="orig">
+
+        <h2>Details</h2>
+
+        <div>
+            <h4>Exercises</h4>
+
+            <table class="table">
+                <tr>
+                    <th>
+                        @Html.DisplayNameFor(model => model.ExName)
+
+                    </th>
+
+                    <th>
+                        <p>Times Per Day</p>
+                    </th>
+
+                    <th>
+                        <p>Total Days</p>
+                    </th>
+                    <th>
+                        <p>Sets</p>
+                    </th>
+                    <th>
+                        <p>Reps</p>
+                    </th>
+                    <th>
+                        <p>Holds</p>
+                    </th>
+                    <th>
+                        <p>Weight</p>
+                    </th>
+                    <th>
+                        <p>Resistance</p>
+                    </th>
+                </tr>
+
+                <tr>
+                    <td>@Html.DisplayFor(model => model.ExName)</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td>3</td>
+                    <td>5</td>
+                    <td>3</td>
+                    <td>Body</td>
+                    <td>Band</td>
+                </tr>
+            </table>
+
+
+            <div class="row">
+                <div class="col-md-3">
+                    <a href="@Html.DisplayFor(model => model.ExPic1)"> <img id="ex-detail-img" src="@Html.DisplayFor(model => model.ExPic1)" alt="Alternate Text" /></a>
+                    <!-- Trigger the modal with a button -->
+                    <button class="btn btn-sm animated-button thar-three" id="patient-home-button vid" data-toggle="modal" data-target="#myModal">Link To Video</button>
+
+                </div>
+
+                <div id="myModal" class="modal fade" role="dialog">
+                    <div class="modal-dialog">
+
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+
+                            </div>
+                            <div class="modal-body">
+                                <video controls="controls">
+                                    <source src="~/Content/images/IMG_0575.MOV" type="video/mp4" />
+                                </video>
+
+
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+
+
+
+
+
+        <div class="col-md-9">
+            <p>Exercise Description:  @Html.DisplayFor(model => model.ExDesc) </p>
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <button class="btn btn-sm animated-button thar-three pull-right" id="log-work-btn" onclick="SwapDivsWithClick('orig','swap')">Log Work</button>
+        </div>
+    </div>
+
+
+    <div id="swap" style="display:none">
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="slidecontainer">
+                    My Pain is:<input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <p> out of 10<span id="demo"></span></p>
+                    Difficulty of this exercise is: <input type="range" min="1" max="10" value="5" class="slider" id="myRange">
+                    <p>out of 10<span id="demo"></span></p>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <p>Where you able to complete the exercise?</p>
+                Yes <input type="radio" name="rad1">
+                No <input type="radio" name="rad1" onclick="SwapWithRadioClick('swap', 'commentShow')" />
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                @Html.ActionLink("Submit", "", "Exercis", routeValues: null, htmlAttributes: new { @class = "btn btn-sm animated-button thar-three pull-right", id = "log-work-btn" })
+
+            </div>
+        </div>
+
+    </div>
+
+
+    <div id="commentShow" style="display:none;">
+        <div class="col-md-12" id="commentSelection">
+            <select>
+                <option selected>Choose a Comment</option>
+                <option>This exercise was too painful.</option>
+                <option>This exercise had too many reps.</option>
+                <option>This exercise had too many sets.</option>
+                <option>This exercise weight requirement was too much.</option>
+            </select>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <label for="completedSets">Complete Sets</label>
+                <select>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+
+            <div class="col-md-6">
+                <label for="partialSets">Partial Sets</label>
+                <select>
+                    <option>0</option>
+                    <option>1</option>
+                    <option>2</option>
+                    <option>3</option>
+                    <option>4</option>
+                    <option>5</option>
+                    <option>6</option>
+                    <option>7</option>
+                    <option>8</option>
+                    <option>9</option>
+                    <option>10</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                @Html.ActionLink("Back", "", "Exercis", routeValues: null, htmlAttributes: new { @class = "btn btn-sm animated-button thar-three pull-right", id = "log-work-btn" })
+                @Html.ActionLink("Submit", "", "Exercis", routeValues: null, htmlAttributes: new { @class = "btn btn-sm animated-button thar-three pull-right", id = "log-work-btn" })
+
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+
+
+
+
+    <div class="row">
+        <div class="col-md-12">
+            <p>
+                @Html.ActionLink("Edit", "Edit", new { id = Model.ExID }) |
+                @Html.ActionLink("Back to List", "Index")
+            </p>
+        </div>
+    </div>
+</body>
+
+
+
+
+<!-- Modal -->
+
+
+
+
+
+
+<script>
+
+    function SwapDivsWithClick(div1, div2) {
+        d1 = document.getElementById(div1);
+        d2 = document.getElementById(div2);
+
+        if (d2.style.display == "none") {
+            d1.style.display = "none";
+            d2.style.display = "flex";
+        }
+        else {
+            d1.style.display = "flex";
+            d2.style.display = "none";
+        }
+    }
+
+    // Slider
+    var slider = document.getElementById("myRange");
+    var output = document.getElementById("demo");
+    output.innerHTML = slider.value;
+
+    slider.oninput = function () {
+        output.innerHTML = this.value;
+    }
+
+    //radio button switch
+
+    function SwapWithRadioClick(div1, div2) {
+        d1 = document.getElementById(div1);
+        d2 = document.getElementById(div2);
+
+        if (d2.style.display == "none") {
+            d1.style.display = "none";
+            d2.style.display = "inline";
+        } else {
+            d1.style.display = "inline";
+            d2.style.display = "none";
+        }
+
+
+    }
+
+</script>

@@ -1,0 +1,58 @@
+﻿@model PhytRxProject.Models.Physician
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Physician</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhPic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhPic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Log.ComTxt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Log.ComTxt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RX.RxName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RX.RxName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.PhID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

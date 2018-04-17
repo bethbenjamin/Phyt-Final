@@ -1,0 +1,46 @@
+﻿/*navbar*/
+
+.navbar-inverse {
+    background-color: #DCAE1D;
+    background-image: url('images/wavecut.png');
+}
+
+    .navbar-inverse .navbar-brand {
+        color: #00303F;
+    }
+
+    .navbar-inverse .navbar-nav li a {
+        color: #00303F;
+    }
+
+.logoPic {
+    background-image: url('images/caduceus-symbol-blue.png');
+    height: 49px;
+    width: 200px;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: block;
+    text-indent: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.lineBelowNavbar {
+    background-image: url('images/wavecut.png');
+    background-color: #DCAE1D;
+    height: 5px;
+}
+
+/*footer*/
+.lineAboveFooter {
+    background-image: url('images/black-linen.png');
+}
+
+.footer-content {
+    background-color: #00303F;
+    background-image: url('images/black-linen.png');
+}
+
+    .footer-content p {
+        color: #DCAE1D;
+    }

@@ -1,0 +1,249 @@
+﻿@model IEnumerable<PhytRxProject.Models.Log>
+<link href="~/Content/PatientViewsStyleSheet.css" rel="stylesheet" />
+@{
+    ViewBag.Title = "Index";
+}
+<input type="hidden" value="@ViewBag.PID" />
+
+<h3 class="heading1">Logs Index</h3>
+<h5 class="heading2" align="right">Patient Name Here</h5>
+@*<p>
+        @Html.ActionLink("Create New", "Create")
+    </p>*@
+<table class="table">
+    <tr class="backgroundDark">
+        <th>
+            @Html.DisplayNameFor(model => model.RX.RxName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exercis.ExName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PainNumb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DiffNumb)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ComTxt)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsComplete)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.FullSet)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PartialSet)
+        </th>
+        <th>
+                @Html.DisplayNameFor(model => model.PID)
+            </th>
+        @*<th>
+                @Html.DisplayNameFor(model => model.PhID)
+            </th>*@
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (ViewBag.PID == item.PID)
+        {
+        <tr class="backgroundMist2">
+            <td>
+                @Html.DisplayFor(modelItem => item.RX.RxName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exercis.ExName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PainNumb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiffNumb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComTxt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullSet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartialSet)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.PID)
+                </td>
+            @*<td>
+                    @Html.DisplayFor(modelItem => item.PhID)
+                </td>*@
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id = item.LogID }) |*@
+                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Details</button>
+                @*@Html.ActionLink("Details", "Details", new { id = item.LogID })*@ @*|
+                    @Html.ActionLink("Delete", "Delete", new { id = item.LogID })*@
+            </td>
+        </tr>
+        }
+    }
+</table>
+<!-- Trigger the modal with a button -->
+<!-- Modal -->
+
+<div id="myModal" class="modal fade" role="dialog">
+    <div class="modal-dialog modal-lg">
+        <!-- Modal content-->
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Patient Name Here</h4>
+            </div>
+            <div class="modal-body">
+                <dl class="dl-horizontal">
+                    <dt>
+                        Pain Level
+                    </dt>
+                    <dd>
+                        1
+                    </dd>
+                    <dt>
+                        Level of Difficulty
+                    </dt>
+                    <dd>
+                        1
+                    </dd>
+                    <dt>
+                        Patient Comments
+                    </dt>
+                    <dd>
+                        Good overall, but I do not have the cramping or pain that seems to be associated with calves.
+                    </dd>
+                    <dt>
+                        Completed
+                    </dt>
+                    <dd>
+                        <input checked="checked" class="check-box" disabled="disabled" type="checkbox" />
+                    </dd>
+                    <dt>
+                        Full Sets
+                    </dt>
+                    <dd>
+                        1
+                    </dd>
+                    <dt>
+                        Partial Sets
+                    </dt>
+                    <dd>
+                        1
+                    </dd>
+                    <dt>
+                        DPT Name
+                    </dt>
+                    <dd>
+                        Dr. Enoch Johnson, ESQ.
+                    </dd>
+                    <dt>
+                        ExName
+                    </dt>
+                    <dd>
+                        Hip: Side Lying Clamshell
+                    </dd>
+                    <dt>
+                        RxName
+                    </dt>
+                    <dd>
+                        Hips 2
+                    </dd>
+                </dl>
+            </div>
+        </div>
+        @*<div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+            </div>*@
+    </div>
+</div>
+<div> <a href="#" class="btn btn-sm animated-button thar-three" id="patient-home-button">Return to Patient/DPT Main Menu</a> </div>
+
+@*<h2>Index</h2>
+
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.PainNumb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.DiffNumb)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ComTxt)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsComplete)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.FullSet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PartialSet)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PhID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Exercis.ExName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.RX.RxName)
+            </th>
+            <th></th>
+        </tr>
+
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.PainNumb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.DiffNumb)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ComTxt)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsComplete)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.FullSet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PartialSet)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PhID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Exercis.ExName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RX.RxName)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.LogID }) |
+                @Html.ActionLink("Details", "Details", new { id=item.LogID }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.LogID })
+            </td>
+        </tr>
+    }
+
+    </table>*@

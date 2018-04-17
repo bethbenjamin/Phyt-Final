@@ -1,0 +1,81 @@
+﻿@model IEnumerable<PhytRxProject.Models.Duration>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.DurName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Reps)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sets)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Holds)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Bands)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Weights)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PerDays)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.XDays)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Exercis.ExName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.DurName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Reps)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sets)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Holds)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Bands)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Weights)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PerDays)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.XDays)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Exercis.ExName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.DurID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.DurID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.DurID })
+        </td>
+    </tr>
+}
+
+</table>

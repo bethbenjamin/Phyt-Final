@@ -1,0 +1,64 @@
+﻿@model PhytRxProject.Models.Physician
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Physician</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PhName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PhPic)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PhPic)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Log.ComTxt)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Log.ComTxt)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RX.RxName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RX.RxName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

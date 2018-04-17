@@ -1,0 +1,72 @@
+﻿@model PhytRxProject.Models.Exercis
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Exercis</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ExName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExDesc)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExDesc)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExPic1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExPic1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ExVid)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ExVid)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DurID)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DurID)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.RX.RxName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.RX.RxName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

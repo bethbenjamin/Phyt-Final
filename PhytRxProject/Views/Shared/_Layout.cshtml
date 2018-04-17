@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - RX</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-static-top" role="navigation">
+        <div class="container navbarContainer">
+
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".nav-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a href="/Home/Index" class="logoPic">Logo link</a>
+
+            </div>
+
+            <div class="collapse navbar-collapse">
+
+
+                <div class="nav navbar-nav navbar-right">
+
+                    <a href="#" data-toggle="modal" data-target="#contactModal">Contact</a>
+                    <a href="#" data-toggle="modal" data-target="#logoutModal">Logout</a>
+
+                </div>
+            </div>
+
+        </div>
+    </nav>
+    <div class="row lineBelowNavbar"></div>
+
+    <!--Contact Modal -->
+    <div class="modal" id="contactModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="heading2">Contact Us<i class="fa fa-lock"></i></h3>
+                </div>
+                <div class="modal-body">
+                    <p class="pTag1">If this is a medical emergency, please dial 911.<br /></p>
+                    <p class="pTag1">If you have a question about your RX, call 555-GET-PHYT (555-438-7498)<br /></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Logout modal -->
+    <div class="modal" id="logoutModal" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-sm">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                    <h4>Logout <i class="fa fa-lock"></i></h4>
+                </div>
+                <div class="modal-body">
+                    <p><i class="fa fa-question-circle"></i> Are you sure you want to log out? <br /></p>
+                    <div class="actionsBtns">
+                        <form action="/Home/Index" method="post">
+                            <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}" />
+                            <button class="btn btn-default btn-primary">Logout</button>
+                            <button class="btn btn-default" data-dismiss="modal">Cancel</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container body-content">
+        @RenderBody()
+        <hr id="hrBar" />
+    </div>
+
+    @*<div class="row lineAboveFooter"></div>*@
+    <div class="container-fluid footer-content">
+        <footer>
+            <p class="pTag1"> Team Doctor Doctor Doctor &copy; @DateTime.Now.Year</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

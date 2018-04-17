@@ -1,0 +1,58 @@
+﻿@model IEnumerable<PhytRxProject.Models.RX>
+@{
+    ViewBag.Title = "Index";
+}
+<h2>Index</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<input type="hidden" value="@ViewBag.PID" />
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.RxName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PhID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LogID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Patient.UserID)
+        </th>
+        <th></th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        if (ViewBag.PID == item.Patient.PID)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.RxName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ExID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.PhID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.LogID)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Patient.UserID)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.RxID }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.RxID }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.RxID })
+                </td>
+            </tr>
+        }
+    }
+</table>

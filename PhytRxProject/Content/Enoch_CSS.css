@@ -1,0 +1,214 @@
+﻿body {
+}
+
+td {
+    color: #333333;
+}
+
+img#ex-detail-img {
+    width: 100%;
+    height: 100%;
+}
+
+button#patient-home-button.btn.btn-sm.animated-button.thar-three {
+    width: 100%;
+    margin-top: 1em;
+}
+
+button#log-work-btn {
+    width: 22%;
+}
+/*SLIDER EXAMPLE*/
+.ui-bar-a, .ui-page-theme-a .ui-bar-inherit, html .ui-bar-a .ui-bar-inherit, html .ui-body-a .ui-bar-inherit, html body .ui-group-theme-a .ui-bar-inherit {
+    background: linear-gradient(to right, green, yellow, red); /* Standard syntax (must be last) */
+    border-color: #337ab7;
+    color: #a94442;
+    text-shadow: 0 1px 0 #31708f;
+    font-weight: 700;
+    height: 20px;
+    width: 200px;
+}
+
+.slider {
+    height: 300px;
+}
+
+.slidecontainer {
+    width: 300px;
+}
+
+.slider {
+    -webkit - appearance: none;
+    width: 300px;
+    height: 45px;
+    outline: none;
+    opacity: 0.7;
+    -webkit - transition: .2s;
+    transition: opacity .2s;
+}
+
+    .slider: hover {
+        opacity: 1;
+    }
+
+    .slider:: -webkit - slider - thumb {
+        -webkit - appearance: none;
+        appearance: none;
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+
+    .slider:: -moz - range - thumb {
+        width: 50px;
+        height: 50px;
+        cursor: pointer;
+    }
+/*buttons*/
+a.animated-button:link, a.animated-button:visited {
+    position: relative;
+    display: block;
+    margin: 30px auto 0;
+    padding: 14px 15px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: .08em;
+    border-radius: 0;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+    a.animated-button:link:after, a.animated-button:visited:after {
+        content: "";
+        position: absolute;
+        height: 0%;
+        left: 50%;
+        top: 50%;
+        width: 150%;
+        z-index: -1;
+        -webkit-transition: all 0.75s ease 0s;
+        -moz-transition: all 0.75s ease 0s;
+        -o-transition: all 0.75s ease 0s;
+        transition: all 0.75s ease 0s;
+    }
+
+    a.animated-button:link:hover, a.animated-button:visited:hover {
+        color: #FFF;
+        text-shadow: none;
+    }
+
+        a.animated-button:link:hover:after, a.animated-button:visited:hover:after {
+            height: 450%;
+        }
+
+a.animated-button:link, a.animated-button:visited {
+    position: relative;
+    display: block;
+    margin: 30px auto 0;
+    padding: 14px 15px;
+    color: #fff;
+    font-size: 14px;
+    border-radius: 0;
+    font-weight: bold;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    overflow: hidden;
+    letter-spacing: .08em;
+    text-shadow: 0 0 1px rgba(0, 0, 0, 0.2), 0 1px 0 rgba(0, 0, 0, 0.2);
+    -webkit-transition: all 1s ease;
+    -moz-transition: all 1s ease;
+    -o-transition: all 1s ease;
+    transition: all 1s ease;
+}
+
+a.animated-button.thar-three {
+    color: #CAE4DB;
+    cursor: pointer;
+    display: block;
+    position: relative;
+    border: 2px solid #CAE4DB;
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1)0s;
+}
+
+#patient-home-button.btn.btn-sm.animated-button.thar-three {
+    color: #DCAE1D;
+    border: 2px solid #DCAE1D;
+}
+
+a.animated-button.thar-three:hover {
+    color: #000 !important;
+    background-color: transparent;
+}
+
+    a.animated-button.thar-three:hover:before {
+        left: 0%;
+        right: auto;
+        width: 100%;
+    }
+
+#patient-home-button.animated-button.thar-three:before {
+    background: #DCAE1D;
+}
+
+a.animated-button.thar-three:before {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    height: 100%;
+    width: 0px;
+    z-index: -1;
+    content: '';
+    color: #000 !important;
+    background: #CAE4DB;
+    transition: all 0.4s cubic-bezier(0.42, 0, 0.58, 1) 0s;
+}
+/*Tool Tip Css */
+#tooltip {
+    text-align: center;
+    color: #fff;
+    background: #111;
+    position: absolute;
+    z-index: 100;
+    padding: 15px;
+}
+
+    #tooltip:after /* triangle decoration */ {
+        width: 0;
+        height: 0;
+        border-left: 10px solid transparent;
+        border-right: 10px solid transparent;
+        border-top: 10px solid #111;
+        content: '';
+        position: absolute;
+        left: 50%;
+        bottom: -10px;
+        margin-left: -10px;
+    }
+
+    #tooltip.top:after {
+        border-top-color: transparent;
+        border-bottom: 10px solid #111;
+        top: -20px;
+        bottom: auto;
+    }
+
+    #tooltip.left:after {
+        left: 10px;
+        margin: 0;
+    }
+
+    #tooltip.right:after {
+        right: 10px;
+        left: auto;
+        margin: 0;
+    }

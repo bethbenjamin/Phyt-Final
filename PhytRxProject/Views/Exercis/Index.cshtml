@@ -1,0 +1,63 @@
+﻿@model IEnumerable<PhytRxProject.Models.Exercis>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ExName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExDesc)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExPic1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ExVid)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DurID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.RX.RxName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ExDesc)
+        </td>
+        <td>
+          <img src="@Html.DisplayFor(modelItem => item.ExPic1)" width="270" height="200"/>
+        </td>
+        <td>
+                        <video src="@Html.DisplayFor(modelItem => item.ExVid)" height="200" width="200" controls="controls" autoplay="autoplay" />
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DurID)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.RX.RxName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ExID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ExID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ExID })
+        </td>
+    </tr>
+}
+
+</table>

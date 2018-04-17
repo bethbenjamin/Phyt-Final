@@ -1,0 +1,90 @@
+﻿@model PhytRxProject.Models.Duration
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Duration</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.DurName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DurName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Reps)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Reps)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Sets)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Sets)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Holds)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Holds)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bands)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bands)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Weights)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Weights)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PerDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PerDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.XDays)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.XDays)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Exercis.ExName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Exercis.ExName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.DurID }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

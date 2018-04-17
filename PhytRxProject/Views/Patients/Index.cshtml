@@ -1,0 +1,23 @@
+﻿
+@model IEnumerable<PhytRxProject.Models.Patient>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+<h3 class="heading1">DPT Main Menu</h3>
+<div> <a href='/Patients/Create' class="btn btn-sm animated-button thar-three" id="patient-home-button">Add Patient</a> </div>
+<div class="dropdown">
+    <button class="dropbtn btn btn-sm">LOAD PATIENT</button>
+    <div class="dropdown-content">
+        @foreach (var item in Model)
+    {
+
+        <div style="display:flex; justify-content:flex-start;">@Html.ActionLink(item.AspNetUser.Email, "Details", new { id = item.PID })</div>
+        <hr />
+
+}
+    </div>
+</div>
+<div> <a href='/Exercis/Create' class="btn btn-sm animated-button thar-three" id="patient-home-button">Add Exercise</a> </div>
