@@ -6,7 +6,7 @@
 <input type="hidden" value="@ViewBag.PID" />
 
 <h3 class="heading1">Logs Index</h3>
-<h5 class="heading2" align="right">Patient Name Here</h5>
+@*<h5 class="heading2" align="right">Patient Name Here</h5>*@
 @*<p>
         @Html.ActionLink("Create New", "Create")
     </p>*@
@@ -81,7 +81,7 @@
                 </td>*@
             <td>
                 @*@Html.ActionLink("Edit", "Edit", new { id = item.LogID }) |*@
-                <button type="button" class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">Details</button>
+                <button type="button" class="btn btn-info btn-sm tableBtn ui-btn ui-shadow ui-corner-all" data-toggle="modal" data-target="#myModal">Details</button>
                 @*@Html.ActionLink("Details", "Details", new { id = item.LogID })*@ @*|
                     @Html.ActionLink("Delete", "Delete", new { id = item.LogID })*@
             </td>
@@ -164,7 +164,7 @@
             </div>*@
     </div>
 </div>
-<div> <a href="#" class="btn btn-sm animated-button thar-three" id="patient-home-button">Return to Patient/DPT Main Menu</a> </div>
+<div> <a href="http://localhost:64427/Exercis/Details/1" class="btn btn-sm animated-button thar-three" id="patient-home-button">Return to Patient/DPT Main Menu</a> </div>
 
 @*<h2>Index</h2>
 

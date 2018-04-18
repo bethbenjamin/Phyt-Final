@@ -1,96 +1,202 @@
 ﻿@using PhytRxProject.Models
 @model LoginViewModel
-
 @{
-    ViewBag.Title = "Home Page";
+                /**/
+
+                ViewBag.Title = "Home Page";
 }
-
-
-
 @if (ViewBag.displayMenu == "Yes")
 {
     <h1>Welcome Admin. Now you can create user Role.</h1>
-
     <li>@Html.ActionLink("Manage Role", "Index", "Role")</li>
-
 }
 else
 {
-    <h2>  Welcome <strong>@ViewBag.Name</strong> :) .We will add user module soon </h2>
+    @*<h2>  Welcome <strong>@ViewBag.Name</strong> :) .We will add user module soon </h2>*@
 }
-
-
 <body id="home-body">
-    <h1 id="home-h1">Welcome to Phyt-RX!</h1>
-    <div class="row">
-        <div class="col-md-6">
-            <h3 class="heading1">Patient Log-In</h3>
-            <div>
+    <div id="homeP">
+        <div class="row">
+            <h3 class="heading1" id="home-h1">Welcome to Phyt-RX!</h3>
+            <br />
+            <p class="pTag1">Phyt-Rx ... Making physical therapy better ...</p>
+            
+                <p class="pTag1">Phty-Rx allows you to retrieve your exercises as prescribed by your physical therapist from anywhere without the worry of losing your "paper copy."</p>
+            
+                <p class="pTag1">With Phyt-RX, you are able from any device to view your therapy prescription, see exercise instructions and videos, and report your progress back to your physical therapist.</p>
+            
+                <p class="pTag1">
+                    Phyt-RX... when you are  committed to putting in the work to get healthy!
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div class="col-md-6">
+                        <h3 class="heading1">Patient Log-In</h3>
+                        <div>
+                            <button class="btn tableBtn btn-block btn-lg" onclick="PatientSwapClick('homeP','pLoginSwap')" data_toggle="tooltip" data_placement="top" title="Patients Log In Here!">Login</button>
 
-                <a @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }) data-toggle="tooltip" data-placement="top" title="Patients Log In Here!" class="btn btn-sm animated-button thar-three" id="patient-home-button">Log In</a>
-            </div>
-        </div>
-        <div class="col-md-6">
-            <h3 class="heading1">DPT Log-In</h3>
-
-            <div>
-                <a @Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" }) data-toggle="tooltip" data-placement="top" title="Patients Log In Here!" class="btn btn-sm animated-button thar-three" id="patient-home-button">Log In</a>
-            </div>
-        </div>
-    </div>
-</body>
-
-
-<div class="row">
-    <div class="col-md-8">
-        <section id="loginForm">
-            @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
-            {
-                @Html.AntiForgeryToken()
-                <h4>Use a local account to log in.</h4>
-                <hr />
-                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
-                        @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <div class="checkbox">
-                            @Html.CheckBoxFor(m => m.RememberMe)
-                            @Html.LabelFor(m => m.RememberMe)
                         </div>
                     </div>
-                </div>
-                <div class="form-group">
-                    <div class="col-md-offset-2 col-md-10">
-                        <input type="submit" value="Log in" class="btn btn-default" />
+                    <div class="col-md-6">
+                        <h3 class="heading1">DPT Log-In</h3>
+                        <div>
+                            <button class="btn tableBtn btn-block btn-lg" onclick="DoctorSwapClick('homeP','dLoginSwap')" data_toggle="tooltip" data_placement="top" title="Physicians Log In Here!">Login</button>
+                            @*@Html.ActionLink("Log in", "Login", "Account", routeValues: null, htmlAttributes: new { @class = "btn btn-sm animated-button thar-three", data_toggle = "tooltip", data_placement = "top", title = "Physicians Log In Here!" })*@
+                        </div>
                     </div>
-                </div>
-                <p>
-                    @Html.ActionLink("Register as a new user", "Register")
-                </p>
-                @* Enable this once you have account confirmation enabled for password reset functionality
-                    <p>
-                        @Html.ActionLink("Forgot your password?", "ForgotPassword")
-                    </p>*@
-            }
-        </section>
-    </div>
-    @*<div class="col-md-4">
-            <section id="socialLoginForm">
-                @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
-            </section>
-        </div>*@
 </div>
+    </div>
+    <div class="row" id="pLoginSwap" style="display:none;">
 
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading1">Patient Log-In</h3>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            @*<input href="http://localhost:64427/Exercis/Details/1" type="submit" value="Log in" class="btn btn-default" />*@
+                            <table class="table" style="border:none">
+                                <tr>
+                                    <td>
+                                        <button type="submit" value="Log in" class="btn tableBtn btn-default">@Html.ActionLink("Submit", "Details/1", "Exercis")</button>
+                                    </td>
+                                </tr>
+                            </table>
+
+                        </div>
+                    </div>
+                    <p>
+                        <table class="table" style="border:none">
+                            <tr>
+                                <td>
+                                    <button type="submit" value="Log in" class="btn tableBtn btn-default">
+                                        @Html.ActionLink("Register as a new user", "Register")
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+
+                    </p>
+                }
+            </section>
+        </div>
+    </div>
+    <div class="row" id="dLoginSwap" style="display:none;">
+        <div class="row">
+            <div class="col-md-12">
+                <h3 class="heading1">Physician Log-In</h3>
+            </div>
+        </div>
+        <div class="col-md-12">
+            <section id="loginForm">
+                @using (Html.BeginForm("Login", "Account", new { ReturnUrl = ViewBag.ReturnUrl }, FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.UserName, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.UserName, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Password, new { @class = "col-md-2 control-label" })
+                        <div class="col-md-10">
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                            @Html.ValidationMessageFor(m => m.Password, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <div class="checkbox">
+                                @Html.CheckBoxFor(m => m.RememberMe)
+                                @Html.LabelFor(m => m.RememberMe)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <table class="table" style="border:none">
+                                <tr>
+                                    <td>
+                                        <button type="submit" value="Log in" class="btn tableBtn btn-default">@Html.ActionLink("Submit", "", "Patients")</button>
+                                        @*<input href="http://localhost:64427/Patients/Index" type="submit" value="Log in" class="btn btn-default" />*@
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <p>
+                        <table class="table" style="border:none">
+                            <tr>
+                                <td>
+                                    <button type="submit" value="Log in" class="btn tableBtn btn-default">
+                                        @Html.ActionLink("Register as a new user", "Register")
+                                    </button>
+                                </td>
+                            </tr>
+                        </table>
+                    </p>
+                }
+            </section>
+        </div>
+    </div>
+    <div id="spacerPatientsIndex"></div>
+</body>
+<script>function PatientSwapClick(div1, div2) {
+                d1 = document.getElementById(div1);
+                d2 = document.getElementById(div2);
+                if (d2.style.display == "none") {
+                    d1.style.display = "none";
+                    d2.style.display = "flex";
+                } else {
+                    d1.style.display = "flex";
+                    d2.style.display = "none";
+                }
+            }
+            function DoctorSwapClick(div1, div2) {
+                d1 = document.getElementById(div1);
+                d2 = document.getElementById(div2);
+                if (d2.style.display == "none") {
+                    d1.style.display = "none";
+                    d2.style.display = "flex";
+                } else {
+                    d1.style.display = "flex";
+                    d2.style.display = "none";
+                }
+            }</script>

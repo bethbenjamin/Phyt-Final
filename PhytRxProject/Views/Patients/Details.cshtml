@@ -1,12 +1,14 @@
-﻿@model PhytRxProject.Models.Patient
+﻿
+@model PhytRxProject.Models.Patient
 @{
     ViewBag.Title = "Details";
 }
-<h2>Details</h2>
+
+<h3 class="heading1">Patient Details</h3>
 <div>
-    <h4>Patient</h4>
-    <hr />
-    <dl class="dl-horizontal">
+
+    <br />
+    <dl class="dl-horizontal subrowHeader verticalTable">
         <dt>
             @Html.DisplayNameFor(model => model.PPic)
         </dt>
@@ -26,24 +28,37 @@
             @*@Html.DisplayFor(model => model.Log.ComTxt)*@
         </dd>
         <dt>
-            @Html.DisplayNameFor(model => model.Physician.PhName)
+            @*@Html.DisplayNameFor(model => model.Physician.PhName)*@
+            Physical Therapist
         </dt>
         <dd>
             @Html.DisplayFor(model => model.Physician.PhName)
         </dd>
     </dl>
 </div>
-<p>
-    @*@Html.ActionLink("Edit", "Edit", new { id = Model.PID }) |*@
-    @Html.ActionLink("Back to List", "Index")
-</p>
+
 
 <div id="selectedPatient" style="display:none">@Html.DisplayFor(model => model.PID)</div>
 
-<a class="ViewLogs btn btn-default">View Patient Logs</a>
-<a class="VewRX btn btn-default">View Patient Rx</a>
-<a class="CreateRX btn btn-default">create RX for Patient</a>
-
+<a class="ViewLogs btn btn-sm animated-button thar-three" id="patient-home-button">VIEW PATIENT LOGS</a>
+<br />
+<a class="VewRX btn btn-sm animated-button thar-three" id="patient-home-button">VIEW PATIENT RX</a>
+<br />
+<a class="CreateRX btn btn-sm animated-button thar-three" id="patient-home-button">CREATE RX FOR PATIENT</a>
+<br />
+<p>
+    <table class="table" style="border:none">
+        <tr>
+            <td>
+                <button class="btn btn-info btn-sm tableBtn ui-btn ui-shadow ui-corner-all">
+                    @*@Html.ActionLink("Edit", "Edit", new { id = Model.PID }) |*@
+                    @Html.ActionLink("Back to Patients List", "Index")
+                </button>
+            </td>
+        </tr>
+    </table>
+</p>
+@*@Html.ActionLink("Back to Patients List", "Index")*@
 <script src="~/Scripts/jquery-3.3.1.js"></script>
 @section Scripts {
     <script>

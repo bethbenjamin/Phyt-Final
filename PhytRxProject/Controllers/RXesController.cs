@@ -57,7 +57,7 @@ namespace PhytRxProject.Controllers
             {
                 db.RXes.Add(rX);
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("Index","Patients");
             }
 
             ViewBag.PID = new SelectList(db.Patients, "PID", "UserID", rX.PID);

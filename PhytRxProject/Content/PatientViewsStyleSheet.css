@@ -1,18 +1,22 @@
 ﻿/*navbar*/
-
+.navbar {
+    margin-bottom: 0px !important;
+}
 .navbar-inverse {
     background-color: #DCAE1D;
     background-image: url('images/wavecut.png');
 }
-
-    .navbar-inverse .navbar-brand {
-        color: #00303F;
-    }
+a.ui-link {
+    text-shadow: 0 0px !important;
+}
+.navbar-inverse .navbar-brand {
+    color: #00303F;
+}
 
     .navbar-inverse .navbar-nav li a {
         color: #00303F;
     }
-
+    
 .logoPic {
     background-image: url('images/caduceus-symbol-blue.png');
     height: 49px;
@@ -27,7 +31,7 @@
 
 .lineBelowNavbar {
     background-image: url('images/wavecut.png');
-    background-color: #DCAE1D;
+    background-color: #9E7E15;
     height: 5px;
 }
 

@@ -4,15 +4,15 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h3 class="heading1">Create Patient</h3>
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>Patient</h4>
-        <hr />
+
+    <div class="form-horizontal subrowHeader verticalTable">
+        @*<h4>Patient</h4>*@
+        <br />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.UserID, "UserID", htmlAttributes: new { @class = "control-label col-md-2" })
@@ -38,27 +38,28 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.LogID, "LogID", htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.DropDownList("LogID", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.LogID, "", new { @class = "text-danger" })
-            </div>
-        </div>
+        @*<div class="form-group">
+                @Html.LabelFor(model => model.LogID, "LogID", htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.DropDownList("LogID", null, htmlAttributes: new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.LogID, "", new { @class = "text-danger" })
+                </div>
+            </div>*@
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Submit" class="btn btn-default" />
-                <a class="btn btn-primary" href="@Url.Action("Index", "Patients")">Return to DPT Main Menu</a>
+                <input type="submit" value="Submit" class="btn btn-default tableBtn" />
+                @*<a class="btn btn-primary" href="@Url.Action("Index", "Patients")">Return to DPT Main Menu</a>*@
             </div>
         </div>
+        <br />
     </div>
 }
+<br />
+<div><a href="'/Patients/Index" class="btn btn-sm animated-button thar-three" id="patient-home-button" >Return to DPT Main Menu</a></div>
 
-    
+<div id="spacerPatientsCreate"></div>
 
 
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+

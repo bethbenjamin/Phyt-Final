@@ -2,14 +2,22 @@
 @{
     ViewBag.Title = "Index";
 }
-<h2>Index</h2>
+<h3 class="heading1">Rx Index</h3>
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <table class="table" style="border:none">
+        <tr>
+            <td>
+                <button class="btn btn-info btn-sm tableBtn ui-btn ui-shadow ui-corner-all">
+                    @Html.ActionLink("Create New", "Create")
+                </button>
+            </td>
+        </tr>
+        </table>
 </p>
 <input type="hidden" value="@ViewBag.PID" />
 
 <table class="table">
-    <tr>
+    <tr class="backgroundDark">
         <th>
             @Html.DisplayNameFor(model => model.RxName)
         </th>
@@ -31,7 +39,7 @@
     {
         if (ViewBag.PID == item.Patient.PID)
         {
-            <tr>
+            <tr class="backgroundMist2">
                 <td>
                     @Html.DisplayFor(modelItem => item.RxName)
                 </td>
@@ -48,9 +56,10 @@
                     @Html.DisplayFor(modelItem => item.Patient.UserID)
                 </td>
                 <td>
-                    @Html.ActionLink("Edit", "Edit", new { id = item.RxID }) |
+                    <button class="btn btn-info btn-sm tableBtn ui-btn ui-shadow ui-corner-all"> @Html.ActionLink("Edit", "Edit", new { id = item.RxID }) |
                     @Html.ActionLink("Details", "Details", new { id = item.RxID }) |
                     @Html.ActionLink("Delete", "Delete", new { id = item.RxID })
+                    </button>
                 </td>
             </tr>
         }

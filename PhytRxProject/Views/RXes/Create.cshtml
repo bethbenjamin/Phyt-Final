@@ -2,16 +2,17 @@
 @{
     ViewBag.Title = "Create";
 }
-<h2>Create</h2>
+<h3 class="heading1">Create RX</h3>
+<link href="~/Content/Site.css" rel="stylesheet" />
 <input type="hidden" value="@ViewBag.PID" />
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
 
-    <div class="form-horizontal">
-        <h4>RX</h4>
-        <hr />
+    <div class="form-horizontal subrowHeader verticalTable">
+
+        <br />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
             @Html.LabelFor(model => model.RxName, htmlAttributes: new { @class = "control-label col-md-2" })
@@ -52,11 +53,19 @@
         </div>
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-default tableBtn" />
             </div>
         </div>
     </div>
 }
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    <table class="table" style="border:none">
+        <tr>
+            <td>
+                <button class="btn btn-info btn-sm tableBtn ui-btn ui-shadow ui-corner-all">
+                    @Html.ActionLink("Back to List", "Index")
+                </button>
+            </td>
+        </tr>
+    </table>
 </div>
