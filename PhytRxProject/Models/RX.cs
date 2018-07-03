@@ -11,8 +11,7 @@ namespace PhytRxProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class RX
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -24,7 +23,6 @@ namespace PhytRxProject.Models
         }
     
         public int RxID { get; set; }
-        [Display(Name = "Rx Name")]
         public string RxName { get; set; }
         public int ExID { get; set; }
         public int PID { get; set; }

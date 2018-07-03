@@ -11,8 +11,7 @@ namespace PhytRxProject.Models
 {
     using System;
     using System.Collections.Generic;
-    using System.ComponentModel.DataAnnotations;
-
+    
     public partial class Exercis
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
@@ -22,21 +21,14 @@ namespace PhytRxProject.Models
             this.Logs = new HashSet<Log>();
         }
     
-    public int ExID { get; set; }
-    [Display (Name = "Exercise Name")]
-    public string ExName { get; set; }
-    [Display (Name = "Execise Description")]
-    public string ExDesc { get; set; }
-    [Display(Name = "Execise Image")]
-    public string ExPic1 { get; set; }
-    [Display(Name = "Execise Video")]
-    public string ExVid { get; set; }
-    [Display(Name = "Prescription ID")]
-    public Nullable<int>
-    RxID { get; set; }
-    [Display(Name = "Duration ID")]
-    public Nullable<int>
-    DurID { get; set; }
+        public int ExID { get; set; }
+        public string ExName { get; set; }
+        public string ExDesc { get; set; }
+        public string ExPic1 { get; set; }
+        public string ExVid { get; set; }
+        public Nullable<int> RxID { get; set; }
+        public Nullable<int> DurID { get; set; }
+    
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
         public virtual ICollection<Duration> Durations { get; set; }
         public virtual RX RX { get; set; }
